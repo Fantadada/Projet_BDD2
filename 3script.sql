@@ -4,12 +4,12 @@ FROM (
     SELECT id_Personnel_fk::VARCHAR AS identifiant -- Cast en texte pour l'UNION
     FROM AUTEUR_INTERNE_PUBLICATION
     WHERE id_Publication_fk IN (
-        -- Toutes les publications écrites par S001
+        -- Toutes les publications écrites par s04
         SELECT id_Publication_fk 
         FROM AUTEUR_INTERNE_PUBLICATION 
-        WHERE id_Personnel_fk = 'S001'
+        WHERE id_Personnel_fk = 's04'
     )
-    AND id_Personnel_fk <> 'S001' -- On exclut S001 lui-même
+    AND id_Personnel_fk <> 's04' -- On exclut s04 lui-même
 
     UNION -- UNION supprime automatiquement les doublons (si on collabore plusieurs fois avec la même personne)
 
@@ -17,7 +17,7 @@ FROM (
     SELECT id_AuteurExt_fk::VARCHAR AS identifiant
     FROM AUTEUR_EXTERNE_PUBLICATION
     WHERE id_Publication_fk IN (
-        -- Toutes les publications écrites par S001
+        -- Toutes les publications écrites par s04
         SELECT id_Publication_fk 
         FROM AUTEUR_INTERNE_PUBLICATION 
         WHERE id_Personnel_fk = 's04'

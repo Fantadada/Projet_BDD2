@@ -1,5 +1,5 @@
 SELECT 
-    p.nomPerso, 
+    p.nomPerso AS "Nom", 
     s.grade
 FROM 
     ENCADREMENT e

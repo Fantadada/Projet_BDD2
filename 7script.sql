@@ -1,6 +1,6 @@
 SELECT 
-    p.nomPerso, 
-    p.prenomPerso
+    p.nomPerso AS "NOM", 
+    p.prenomPerso AS "Prenom"
 FROM 
     SCIENTIFIQUE s
 JOIN 
