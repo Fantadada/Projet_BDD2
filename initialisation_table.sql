@@ -1,3 +1,8 @@
+/* 
+Auteur : Damien CAPPELLINI
+Projet BDD 2 - 2025/2026
+*/
+
 -- Suppression des tables si elles existent déjà
 DROP TABLE IF EXISTS ETABLISSEMENT CASCADE;
 DROP TABLE IF EXISTS PARTENAIRE_PARTICIPANT CASCADE;
