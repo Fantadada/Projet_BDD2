@@ -55,7 +55,6 @@ CREATE TABLE EVENEMENT (
     dateFin DATE
 );
 
--- MODIFICATION ICI : id_Personnel passe en VARCHAR pour accepter "d001"
 CREATE TABLE PERSONNEL (
     id_Personnel VARCHAR(50) PRIMARY KEY, 
     nomPerso VARCHAR(100) NOT NULL,
@@ -133,7 +132,6 @@ CREATE TABLE CHERCHEUR_ENSEIGNANT (
     FOREIGN KEY (acronyme_etablissement_fk) REFERENCES ETABLISSEMENT(acronyme)
 );
 
--- Le projet a un porteur (Scientifique)
 CREATE TABLE PROJET_DE_RECHERCHE (
     id_Projet INT PRIMARY KEY,
     titre VARCHAR(255) NOT NULL,
@@ -150,7 +148,7 @@ CREATE TABLE PROJET_DE_RECHERCHE (
    ÉTAPE 4 : CRÉATION DES TABLES DE JONCTION (RELATIONS N-N)
    ================================================================== */
 
--- FKs modifiées en VARCHAR
+
 CREATE TABLE ENCADREMENT (
     id_Doctorant_fk VARCHAR(50),
     id_Scientifique_fk VARCHAR(50),
@@ -159,7 +157,7 @@ CREATE TABLE ENCADREMENT (
     FOREIGN KEY (id_Scientifique_fk) REFERENCES SCIENTIFIQUE(id_Personnel_fk)
 );
 
--- FK scientifique modifiée en VARCHAR
+
 CREATE TABLE PARTICIPE_PROJET (
     id_Scientifique_fk VARCHAR(50),
     id_Projet_fk INT,
@@ -176,7 +174,6 @@ CREATE TABLE PROJET_PARTENAIRE (
     FOREIGN KEY (id_Partenaire_fk) REFERENCES PARTENAIRE_PARTICIPANT(id_Partenaire)
 );
 
--- FK personnel modifiée en VARCHAR
 CREATE TABLE AUTEUR_INTERNE_PUBLICATION (
     id_Personnel_fk VARCHAR(50),
     id_Publication_fk INT,
@@ -193,7 +190,6 @@ CREATE TABLE AUTEUR_EXTERNE_PUBLICATION (
     FOREIGN KEY (id_Publication_fk) REFERENCES PUBLICATION(id_Publication)
 );
 
--- FK scientifique modifiée en VARCHAR
 CREATE TABLE PRESIDE_CONGRES (
     id_Scientifique_fk VARCHAR(50),
     id_Congres_fk INT,
@@ -202,7 +198,6 @@ CREATE TABLE PRESIDE_CONGRES (
     FOREIGN KEY (id_Congres_fk) REFERENCES CONGRES(id_Event_fk)
 );
 
--- FK personnel modifiée en VARCHAR
 CREATE TABLE PARTICIPE_JPO (
     id_Personnel_fk VARCHAR(50),
     id_PortesOuvertes_fk INT,
